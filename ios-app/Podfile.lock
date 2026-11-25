@@ -1,0 +1,7 @@
+PODS:
+  - Alamofire (5.9.1)
+
+DEPENDENCIES:
+  - Alamofire
+
+COCOAPODS: 1.15.2

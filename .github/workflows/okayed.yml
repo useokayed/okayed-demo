@@ -1,0 +1,22 @@
+# Okayed checks both sample apps on every pull request.
+name: Okayed
+on: [pull_request]
+
+permissions:
+  contents: read
+  pull-requests: write
+  security-events: write
+
+jobs:
+  okayed:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        app: [ios-app, android-app]
+    steps:
+      - uses: actions/checkout@v6
+      - uses: useokayed/action@v1
+        with:
+          path: ${{ matrix.app }}
+          fail-on: never   # demo: show findings without failing
